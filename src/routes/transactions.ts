@@ -6,9 +6,6 @@ import { z } from 'zod'
 import { checkSessionIdExists } from '../middlewares/check-session-id-exits'
 
 export async function transactionsRoutes(app: FastifyInstance) {
-    // app.addHook('preHandler', (request, replay) => {
-    //     console.log(`[${request.method}] ${request.url}`)
-    // })
 
     app.get('/', {
         preHandler: [checkSessionIdExists],
@@ -51,7 +48,7 @@ export async function transactionsRoutes(app: FastifyInstance) {
 
         const summary = await knex('transactions')
         .where('session_id', sessionId)
-        .sum('amout', { as: 'amount'}).first()
+        .sum('amount').first()
 
         return {summary}
     })
@@ -80,7 +77,7 @@ export async function transactionsRoutes(app: FastifyInstance) {
         const transaction = await knex('transactions').insert({
             id: randomUUID(),
             title,
-            amout: type == 'credit' ? amount : amount * -1,
+            amount: type == 'credit' ? amount : amount * -1,
             session_id: sessionId,
         })
     

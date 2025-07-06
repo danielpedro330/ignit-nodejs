@@ -99,7 +99,7 @@ describe('Transactions routes', () => {
         .post('/transactions')
         .send({
             title: 'Credit transaction',
-            amout: 5000,
+            amount: 5000,
             type: 'credit',
         })
 
@@ -114,7 +114,7 @@ describe('Transactions routes', () => {
         .set('Cookie', cookies)
         .send({
             title: 'Debit transaction',
-            amout: 2000,
+            amount: 2000,
             type: 'debit',
         })
 
@@ -124,7 +124,7 @@ describe('Transactions routes', () => {
             .expect(200)
 
             expect(summaryResponse.body.summary).toEqual({
-                amout: 3000,
+                'sum(`amount`)': 3000,
             })
     })
 })
