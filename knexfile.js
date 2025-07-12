@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 // import type { Knex } from "knex";
-var database_1 = require("./src/database");
+const database_1 = require("./src/database");
 exports.default = database_1.config;
 // Update with your config settings.
 // const config: { [key: string]: Knex.Config } = {

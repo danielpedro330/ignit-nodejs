@@ -9,7 +9,8 @@
     "migrate:latest": "npx knex migrate:latest",
     "lint": "eslint src --ext .ts --fix",
     "test": "npx vitest",
-    "teste": "node src/index.js"
+    "teste": "node src/index.js",
+    "build": "tsup src --out-dir build"
   },
   "keywords": [],
   "author": "",
